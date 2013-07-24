@@ -48,3 +48,19 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = 'table_user'
         verbose_name = 'User'
+
+
+class Post(models.Model):
+
+    url = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    author = models.ForeignKey(User)
+    time_published = models.DateTimeField(auto_now_add=True)
+    time_modified = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return '%s' % (self.title)
+
+    class Meta:
+        db_table = 'table_post'

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import User
+from models import User, Post
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -19,4 +19,12 @@ class UserAdmin(admin.ModelAdmin):
     filter_horizontal = ['groups', 'user_permissions']
 
 
+class PostAdmin(admin.ModelAdmin):
+
+    list_display = ('title', 'url', 'author', 'time_published', 'time_modified')
+    search_fields = ['title', 'url', 'content']
+    list_filter = ('time_published', 'time_modified')
+
+
 admin.site.register(User, UserAdmin)
+admin.site.register(Post, PostAdmin)
