@@ -1,0 +1,80 @@
+@import "bootstrap/bootstrap.less";
+@import "variables.less";
+
+body {
+  color: #666;
+  font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+footer {
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+a {
+  color: @link-color;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: @link-hover-color;
+  text-decoration: underline;
+}
+
+a:focus {
+  .tab-focus();
+}
+
+::selection {
+  background: @color-main;
+  color: white;
+}
+
+::-moz-selection {
+  background: @color-main;
+  color: white;
+}
+
+::-webkit-selection {
+  background: @color-main;
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+.detail {
+  color: #999;
+  position: relative;
+  top: -4px;
+  left: 2px;
+  margin-bottom: 10px;
+}
+
+.content {
+  line-height: 30px;
+  p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  max-width: 700px;
+}
+
+.comments {
+  max-width: 700px;
+}
+
+.runkite-menu {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 50px;
+
+  a {
+    margin-left: 20px;
+    color: @color-main;
+  }
+}

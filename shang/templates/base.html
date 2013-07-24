@@ -15,12 +15,12 @@
 
   <!-- Stylesheets -->
   {% compress css %}
-  <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="{{ STATIC_URL }}css/shang.css" rel="stylesheet" type="text/css" />
   {% endcompress %}
 
   <!-- LESS -->
   {% if DEBUG %}
-  <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}less/bootstrap/bootstrap.less" />
+  <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}less/shang.less" />
   <script src="{{ STATIC_URL }}js/vendor/less.js"></script>
   {% endif %}
 
@@ -31,6 +31,12 @@
   <script src="{{ STATIC_URL }}js/base.js"></script>
   {% block js %}{% endblock %}
   {% endcompress %}
+
+  {% if DEBUG %}
+  <script type="text/javascript">
+    var disqus_developer = 1;
+  </script>
+  {% endif %}
 
 </head>
 

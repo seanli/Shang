@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, UserManager
 from django.utils import timezone
+from markdown import markdown
 
 
 class CustomUserManager(BaseUserManager):
@@ -56,8 +57,8 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(User)
-    time_published = models.DateTimeField()
-    time_modified = models.DateTimeField()
+    time_published = models.DateTimeField(blank=True, null=True)
+    time_modified = models.DateTimeField(blank=True, null=True)
 
     def __unicode__(self):
         return '%s' % (self.title)
@@ -67,6 +68,9 @@ class Post(models.Model):
             self.time_published = timezone.now()
         self.time_modified = timezone.now()
         super(Post, self).save()
+
+    def html_content(self):
+        return markdown(self.content)
 
     class Meta:
         db_table = 'table_post'

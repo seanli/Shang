@@ -4,13 +4,15 @@ from django.contrib import auth
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login
 from components.decorators import ajax_endpoint
-from models import User
+from models import User, Post
 from components.client import get_param, is_blank, is_valid_email
 from components.auth import user_login
 
 
 def index(request):
     context = RequestContext(request)
+    posts = Post.objects.all().order_by('-time_published')
+    context['posts'] = posts
     return render_to_response('index.html', context)
 
 
@@ -74,4 +76,20 @@ def api_user_login(request):
     if len(errors.keys()) > 0:
         response['errors'] = errors
         return response, 200
+    return response, 200
+
+
+@ajax_endpoint
+def api_post_list(request):
+    response = {}
+    post_list = []
+    posts = Post.objects.all().order_by('-time_published')
+    for post in posts:
+        datum = {}
+        datum['url'] = post.url
+        datum['title'] = post.title
+        datum['content'] = post.content
+        datum['time_published'] = post.time_published
+        post_list.append(datum)
+    response['post_list'] = post_list
     return response, 200

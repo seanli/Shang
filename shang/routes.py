@@ -7,7 +7,8 @@ urlpatterns = patterns('shang.views',
     url(r'^$', 'index'),
     url(r'^logout/$', 'logout'),
     url(r'^api/user/add/$', 'api_user_add'),
-    url(r'^api/user/login/$', 'api_user_login')
+    url(r'^api/user/login/$', 'api_user_login'),
+    url(r'^api/post/list/$', 'api_post_list')
 )
 
 urlpatterns += patterns('',
