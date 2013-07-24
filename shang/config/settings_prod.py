@@ -29,3 +29,8 @@ MEDIA_URL = 'https://s3.amazonaws.com/shang-li/'
 # AWS Information
 AWS_ACCESS_KEY_ID = 'AKIAIWUXQY7UILQNXKDA'
 AWS_SECRET_ACCESS_KEY = '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'
+
+# Raven Information
+RAVEN_CONFIG = {
+    'dsn': 'https://2c00eae32e2143f082722d9c746b6c0d:162025fd37754f6e88d428efd7caed8b@app.getsentry.com/11109',
+}
