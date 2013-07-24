@@ -56,11 +56,17 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(User)
-    time_published = models.DateTimeField(auto_now_add=True)
-    time_modified = models.DateTimeField(auto_now=True)
+    time_published = models.DateTimeField()
+    time_modified = models.DateTimeField()
 
     def __unicode__(self):
         return '%s' % (self.title)
+
+    def save(self, **kwargs):
+        if not self.id:
+            self.time_published = timezone.now()
+        self.time_modified = timezone.now()
+        super(Post, self).save()
 
     class Meta:
         db_table = 'table_post'
