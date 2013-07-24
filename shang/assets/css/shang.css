@@ -254,12 +254,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #428fd4;
+  color: #2a6a92;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #2568a4;
+  color: #193f57;
   text-decoration: underline;
 }
 a:focus {
@@ -1712,14 +1712,14 @@ fieldset[disabled] .btn-link {
   border-color: transparent;
 }
 .btn-link {
-  color: #428fd4;
+  color: #2a6a92;
   font-weight: normal;
   cursor: pointer;
   border-radius: 0;
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #2568a4;
+  color: #193f57;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -2694,8 +2694,8 @@ button.close {
 .nav.open > a:hover,
 .nav.open > a:focus {
   color: #fff;
-  background-color: #428fd4;
-  border-color: #428fd4;
+  background-color: #2a6a92;
+  border-color: #2a6a92;
 }
 .nav.open > a .caret,
 .nav.open > a:hover .caret,
@@ -2833,12 +2833,12 @@ button.close {
   display: block;
 }
 .nav .caret {
-  border-top-color: #428fd4;
-  border-bottom-color: #428fd4;
+  border-top-color: #2a6a92;
+  border-bottom-color: #2a6a92;
 }
 .nav a:hover .caret {
-  border-top-color: #2568a4;
-  border-bottom-color: #2568a4;
+  border-top-color: #193f57;
+  border-bottom-color: #193f57;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -3863,7 +3863,7 @@ button.close {
 }
 a.thumbnail:hover,
 a.thumbnail:focus {
-  border-color: #428fd4;
+  border-color: #2a6a92;
 }
 .thumbnail > img {
   display: block;
@@ -3983,7 +3983,7 @@ a.badge:focus {
 }
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #428fd4;
+  color: #2a6a92;
   background-color: #fff;
 }
 .nav-pills > li > a > .badge {
@@ -4435,9 +4435,16 @@ a.list-group-item.active > .badge,
   }
 }
 body {
+  background-color: #2a6a92;
   color: #666;
   font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
   font-size: 16px;
+}
+.container {
+  margin-top: 20px;
+}
+.panel {
+  background-color: white;
 }
 footer {
   font-weight: 300;
@@ -4445,12 +4452,12 @@ footer {
   margin-bottom: 40px;
 }
 a {
-  color: #428fd4;
+  color: #2a6a92;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #2568a4;
+  color: #193f57;
   text-decoration: underline;
 }
 a:focus {
@@ -4459,15 +4466,15 @@ a:focus {
   outline-offset: -2px;
 }
 ::selection {
-  background: #428fd4;
+  background: #2a6a92;
   color: white;
 }
 ::-moz-selection {
-  background: #428fd4;
+  background: #2a6a92;
   color: white;
 }
 ::-webkit-selection {
-  background: #428fd4;
+  background: #2a6a92;
   color: white;
 }
 .center {
@@ -4476,8 +4483,6 @@ a:focus {
 .detail {
   color: #999;
   position: relative;
-  top: -4px;
-  left: 2px;
   margin-bottom: 10px;
 }
 .content {
@@ -4498,5 +4503,5 @@ a:focus {
 }
 .runkite-menu a {
   margin-left: 20px;
-  color: #428fd4;
+  color: #2a6a92;
 }

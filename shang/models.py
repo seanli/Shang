@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, UserManager
 from django.utils import timezone
 from markdown import markdown
+from scrapy.selector import HtmlXPathSelector
 
 
 class CustomUserManager(BaseUserManager):
@@ -69,8 +70,23 @@ class Post(models.Model):
         self.time_modified = timezone.now()
         super(Post, self).save()
 
+    def xpath_extract(self, selector, path, extract_all=False):
+        result = selector.select(path).extract()
+        if not extract_all:
+            if len(result) > 0:
+                return result[0]
+            else:
+                return None
+        else:
+            return result
+
     def html_content(self):
         return markdown(self.content)
+
+    def summary(self):
+        selector = HtmlXPathSelector(text=self.html_content())
+        first_paragraph = self.xpath_extract(selector, "//p/text()")
+        return '<p>%s&#8230;</p>' % (first_paragraph)
 
     class Meta:
         db_table = 'table_post'
